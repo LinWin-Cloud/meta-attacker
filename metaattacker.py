@@ -5,6 +5,8 @@ import list_en
 import list_zh
 import config
 
+import http_server_attacks as http_server_attacks
+
 def print_english_information() -> None:
     for i in list_en.list_of_name():
         print(" - "+ i + " ")
@@ -19,7 +21,7 @@ def print_chinese_information() -> None:
             print("     [" + j + "] ")
         print("     *例如: \n          "+list_zh.get_for_example(i))
 
-if __name__ == "__main__":
+def main():
     arg = sys.argv
     #print(len(arg))
     if len(arg) == 1:
@@ -37,15 +39,22 @@ if __name__ == "__main__":
             print_chinese_information()
     else:
         try:
-            options: int = int(arg[1])
-            if options == 1:
+            options: str = arg[1]
+            if options == "-1":
+                http_server_attacks.run(arg[2] , int(arg[3]) , int(arg[4]))
+                return True
+            if options == "-2":
                 pass
-            if options == 2:
-                pass
-            if options == 3:
-                pass
+                return True
+            if options == "-3":
+                
+                return True
             else:
-                print(" [ERR] Private options error.")
-        except:
-            print(" [ERR] Private options error.")
-            exit(1)
+                print(" [ERR1] Private options error.")
+                return False
+        except BaseException:
+            print(" [ERR2] Private options error: "+BaseException.args)
+            return False
+        
+if __name__ == "__main__":
+    main()
