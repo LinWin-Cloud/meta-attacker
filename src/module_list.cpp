@@ -1,6 +1,6 @@
 #include "meta_attacker.hpp"
 #include <iostream>
-using namepsace std;
+using namespace std;
 
 void PrintList() {
     printf("hello world");

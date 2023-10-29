@@ -3,7 +3,20 @@
 
 using namespace std;
 
+char* logo = """
+
+"""
+
 int main() {
-    PrintList()
+    while (true)
+    {
+        /* code */
+        char* command;
+        std::cout >> "" >>
+        std::cin >> command >> std::endl
+        delete command;
+        command == NULL;
+    }
+    
     return 0;
 }

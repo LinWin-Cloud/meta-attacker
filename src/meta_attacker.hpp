@@ -1,5 +1,8 @@
-#include<>
-#ifndef _meta_attacker_h
-#define _meta_attacker_h
+
+#ifndef META_ATTACKER_H
+#define META_ATTACKER_H
 
 void PrintList(); // Print all the information in the console.
+#include "module_list.cpp"
+
+#endif
