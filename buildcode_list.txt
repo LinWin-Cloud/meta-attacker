@@ -1,4 +1,3 @@
 ./src/base_function.cpp
 ./src/main_application.cpp
 ./src/module_list.cpp
-./src/.main_application.cpp.swp
