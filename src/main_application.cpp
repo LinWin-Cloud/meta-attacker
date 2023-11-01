@@ -2,13 +2,13 @@
 #include <experimental/filesystem>    
 #include "meta_attacker.hpp"  
 #include <fstream>  
-#include <string>  
-#include <filesystem>
+#include <string>
 #include <cstdlib>
+#include <utility>
+#include <unistd.h>
+#include "filesystem"
 
-using namespace std;  
-
-std::string logo = "";  
+using namespace std;
   
 void PrintLogo(std::string logo_path) {
 	std::cout << GetFileContent(logo_path) << std::endl;
@@ -18,22 +18,41 @@ void PrintLogo(std::string logo_path) {
 	std::cout << " [Notice] Enter 'help' to show the command line help; Enter the command 'exit' to quit.\n" << endl;
 }
 
-void run_command(std::string command) {
-	if (command.compare("exit") == 0) {
+void run_command(const std::string& command) {
+	if (command == "exit") {
 		exit(EXIT_SUCCESS);
-	}else {
+	}
+    if (command.rfind("cd ",0) == 0) {
+        try {
+            char* cd_path = const_cast<char *>(command.substr(3).c_str());
+            //cout << cd_path << endl;
+            if (chdir(cd_path) != 0) {
+                std::cerr << "Failed to change working directory\n";
+            }
+        }catch (const std::runtime_error& e) {
+            std::cerr << "[ERR] Your command error.\n";
+        }
+        return;
+    }
+    if (command == "help") {
+        std::filesystem::path abs_path = std::filesystem::canonical(".");
+        cout << GetFileContent(abs_path.string()+"/../help.md") << endl;
+        return;
+    }
+    else {
 		system(command.c_str());
+        return;
 	}
 }
 
-int main() {  
-	std::filesystem::path abs_path = std::filesystem::canonical(".");
+int main() {
+    std::filesystem::path abs_path = std::filesystem::canonical(".");
 	// Print the logo in the console.
 	PrintLogo(abs_path.string() + "/../config/logo.txt");
  	while (true)  
  	{  
  		/* code */  
- 		std::string command = "";  
+ 		std::string command;
  		printf("Meta_Attacker$ ");
  		getline(std::cin , command);  
    		run_command(command);

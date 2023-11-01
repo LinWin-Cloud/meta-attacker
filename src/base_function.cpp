@@ -5,7 +5,7 @@
 
 using namespace std;
 
-std::string GetFileContent(std::string path) {
+std::string GetFileContent(const std::string& path) {
 	std::ifstream file(path);
 	if (file.is_open()) {
 		std::string line;
@@ -18,6 +18,6 @@ std::string GetFileContent(std::string path) {
 		return ss.str();
 	}else {
 		std::cerr << "Can not open this file: " << path << std::endl;
-		return NULL;
+		return nullptr;
 	}
 }
