@@ -8,4 +8,6 @@
 ## >> Payload Name <<
 
 - death_ping
--
+- http_attack
+- tcp_flood
+- network_resource_attack
