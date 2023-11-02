@@ -36,7 +36,7 @@ void run_command(const std::string& command) {
     }
     if (command == "help") {
         std::filesystem::path abs_path = std::filesystem::canonical(".");
-        cout << GetFileContent(abs_path.string()+"/../help.md") << endl;
+        cout << GetFileContent(abs_path.string()+"/../config/help.md") << endl;
         return;
     }
     else {
