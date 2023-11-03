@@ -17,7 +17,7 @@ void PrintLogo(std::string logo_path) {
 	std::cout << " [注意] 输入 help 查看命令行帮助; 输入 exit 退出" << std::endl;
 	std::cout << " [Notice] Enter 'help' to show the command line help; Enter the command 'exit' to quit.\n" << endl;
 }
-void enter_attack_console(char* payload) {
+void enter_attack_console(std::basic_string<char> payload) {
     if (payload == "death_ping") {
         auto* deathOfPing = new DeathOfPing();
         deathOfPing->Console();
@@ -46,19 +46,22 @@ void run_command(const std::string& command) {
     }
     if (command.rfind("use ",0) == 0) {
         try {
-            char* use_payload = const_cast<char *>(command.substr(4).c_str());
-            string* payload_array = get_module_list();
+            string use_payload = command.substr(4);
+            string payload_array = get_module_list();
             bool find_payload = false;
-            for (int i = 0; i < payload_array->length() ;i++) {
-                if (payload_array->c_str() == use_payload) {
+            for (int i = 0; i < payload_array.length() ;i++) {
+                //cout << payload_array[i] << " " << use_payload << "\n";
+                if (payload_array[i]) {
                     find_payload = true;
                     break;
                 }
             }
+            //cout << find_payload << "\n" << endl;
             if (find_payload) {
                 enter_attack_console(use_payload);
+                return;
             }else {
-                cerr << "[NOT FOUND ERROR] Can not find the Module: " << use_payload;
+                cerr << "[NOT FOUND ERROR] Can not find the Module: " << use_payload << "\n";
                 return;
             }
         }catch (const std::runtime_error& e) {
