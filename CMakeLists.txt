@@ -9,4 +9,5 @@ add_executable(meta_attacker
         src/base_function.cpp
         src/main_application.cpp
         src/meta_attacker.hpp
-        src/module_list.cpp)
+        src/module_list.cpp
+        src/death_ping.cpp)
