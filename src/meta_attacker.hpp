@@ -6,6 +6,8 @@
 
 void PrintList(); 			        // Print all the information in the console.
 std::string GetFileContent();		// Get the file's text content.
+std::string* get_module_list();     // Get all the payload in this software.
+std::string input();                // Get the user's key input
 
 #include "module_list.cpp"
 #include "base_function.cpp"

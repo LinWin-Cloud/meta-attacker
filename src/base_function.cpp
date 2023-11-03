@@ -21,3 +21,10 @@ std::string GetFileContent(const std::string& path) {
 		return nullptr;
 	}
 }
+
+std::string input(const char *text) {
+    std::string get_input;
+    printf("%s", text);
+    getline(std::cin , get_input);
+    return get_input;
+}
