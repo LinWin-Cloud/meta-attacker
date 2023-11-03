@@ -151,11 +151,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "CXX compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
-			"value" : "/usr/bin/g++"
+			"type" : "UNINITIALIZED",
+			"value" : "g++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -279,11 +279,11 @@
 				},
 				{
 					"name" : "HELPSTRING",
-					"value" : "C compiler"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "STRING",
-			"value" : "/usr/bin/gcc"
+			"type" : "UNINITIALIZED",
+			"value" : "gcc"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
