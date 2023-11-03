@@ -9,6 +9,6 @@ std::string GetFileContent();		// Get the file's text content.
 
 #include "module_list.cpp"
 #include "base_function.cpp"
-
+#include "death_ping.cpp"
 
 #endif

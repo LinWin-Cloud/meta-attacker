@@ -34,6 +34,15 @@ void run_command(const std::string& command) {
         }
         return;
     }
+    if (command.rfind("use ",0) == 0) {
+        try {
+            char* use_payload = const_cast<char *>(command.substr(4).c_str());
+
+        }catch (const std::runtime_error& e) {
+            cerr << "[ERR] Your command error: use [payload name]\n";
+            return;
+        }
+    }
     if (command == "help") {
         std::filesystem::path abs_path = std::filesystem::canonical(".");
         cout << GetFileContent(abs_path.string()+"/../config/help.md") << endl;
