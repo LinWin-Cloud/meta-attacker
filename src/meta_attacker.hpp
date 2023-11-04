@@ -12,5 +12,6 @@ std::string input();                // Get the user's key input
 #include "module_list.cpp"
 #include "base_function.cpp"
 #include "death_ping.cpp"
+#include "HttpAttack.cpp"
 
 #endif

@@ -22,7 +22,13 @@ void enter_attack_console(std::basic_string<char> payload) {
         auto* deathOfPing = new DeathOfPing();
         deathOfPing->Console();
         delete deathOfPing;
-    }else {
+    }
+    if (payload == "http_attack") {
+        auto* httpAttack = new HttpAttack();
+        httpAttack->Console();
+        delete httpAttack;
+    }
+    else {
         return;
     }
 }
