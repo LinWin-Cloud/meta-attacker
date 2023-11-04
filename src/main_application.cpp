@@ -28,6 +28,11 @@ void enter_attack_console(std::basic_string<char> payload) {
         httpAttack->Console();
         delete httpAttack;
     }
+    if (payload == "tcp_flood") {
+        auto* tcpFlood = new TcpFlood();
+        tcpFlood->Console();
+        delete tcpFlood;
+    }
     else {
         return;
     }
