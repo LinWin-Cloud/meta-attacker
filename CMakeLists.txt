@@ -12,4 +12,6 @@ add_executable(meta_attacker
         src/module_list.cpp
         src/death_ping.cpp
         src/HttpAttack.cpp
-        src/TcpFlood.cpp)
+        src/TcpFlood.cpp
+        src/NetworkResourceAttack.cpp
+        src/NetworkResourceAttack.h)
