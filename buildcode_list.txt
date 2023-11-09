@@ -4,3 +4,4 @@
 ./src/TcpFlood.cpp
 ./src/module_list.cpp
 ./src/death_ping.cpp
+./src/NetworkResourceAttack.cpp
