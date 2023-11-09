@@ -60,3 +60,15 @@ Meta Attack安全软件，是一款设计入门即入狱的DDOS软件，简单�
 
 ```
 
+## 编译
+#### 准备
+1. g++
+2. Ubuntu Linux环境
+3. 确认位于源代码根目录
+#### 编译教程
+> sudo apt install glibc-doc
+
+> sudo apt install manpages-posix-dev
+
+> ./build_linux.sh #可执行文件生成在 output内
+
