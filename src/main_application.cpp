@@ -34,13 +34,31 @@ void enter_attack_console(std::basic_string<char> payload) {
         delete tcpFlood;
     }
     if (payload == "resource_attack") {
-        auto* n = new NetW
+        auto* n = new NetWorkResourceAttack();
+	n->Console();
+	delete n;
     }
     else {
+	std::cout << "[ERR] Your Input error."
         return;
     }
 }
 
+
+void show_payload(char* payload) {
+	if (payload == "death_ping") {
+		i_1();
+	}
+	if (payload == "http_attack") {
+		i_2();
+	}
+	if (payload == "tcp_flood") {
+		i_3();
+	}
+	if (payload == "resource_attack") {
+		i_4();
+	}
+}
 
 void run_command(const std::string& command) {
 	if (command == "exit") {
@@ -87,6 +105,12 @@ void run_command(const std::string& command) {
         std::filesystem::path abs_path = std::filesystem::canonical(".");
         cout << GetFileContent(abs_path.string()+"/../config/help.md") << endl;
         return;
+    }
+    if (command.rfind("show ",0) == 0) 
+    {
+	 char* payload = const_cast<char *>(command.substr(5).c_str());
+    	 show_payload(payload);   
+	 return;
     }
     else {
 		system(command.c_str());
