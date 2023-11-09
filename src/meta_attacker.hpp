@@ -14,5 +14,6 @@ std::string input();                // Get the user's key input
 #include "death_ping.cpp"
 #include "HttpAttack.cpp"
 #include "TcpFlood.cpp"
+#include "NetworkResourceAttack"
 
 #endif

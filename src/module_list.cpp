@@ -11,7 +11,7 @@ basic_string<char> get_module_list() {
     array[0] = "death_ping";
     array[1] = "http_attack";
     array[2] = "tcp_flood";
-    array[3] = "network_resource_attack";
+    array[3] = "resource_attack";
 
     return reinterpret_cast<basic_string<char> &&>(array);
 }

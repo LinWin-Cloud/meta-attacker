@@ -33,6 +33,9 @@ void enter_attack_console(std::basic_string<char> payload) {
         tcpFlood->Console();
         delete tcpFlood;
     }
+    if (payload == "resource_attack") {
+        auto* n = new NetW
+    }
     else {
         return;
     }
