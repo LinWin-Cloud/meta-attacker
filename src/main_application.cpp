@@ -39,7 +39,7 @@ void enter_attack_console(std::basic_string<char> payload) {
 	delete n;
     }
     else {
-	std::cout << "[ERR] Your Input error."
+	std::cout << "[ERR] Your Input error." << std::endl;
         return;
     }
 }
