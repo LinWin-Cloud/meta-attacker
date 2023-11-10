@@ -44,7 +44,6 @@ void enter_attack_console(std::basic_string<char> payload) {
     }
 }
 
-
 void show_payload(std::basic_string<char> payload) {
 	if (payload == "death_ping") {
 		i_1();
