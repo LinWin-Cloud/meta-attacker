@@ -39,7 +39,7 @@ Meta Attack安全软件，是一款设计入门即入狱的DDOS软件，简单�
 
 > cd meta-attacker/bin
 
-> ./meta_attacker
+> ./meta_attacker.sh
 
 ## 帮助
 ```
