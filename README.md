@@ -72,3 +72,16 @@ Meta Attack安全软件，是一款设计入门即入狱的DDOS软件，简单�
 
 > ./build_linux.sh #可执行文件生成在 output内
 
+
+## 支持
+#### 开源地址: 
+- https://github.com/LinWin-Cloud/meta-attacker
+- https://gitee.com/LinWin-Cloud/meta-attacker
+
+#### 鸣谢
+- 百度文心一言
+- OpenAI ChatGPT
+- zmh-program
+- 全世界具有开源精神的开发者
+
+
