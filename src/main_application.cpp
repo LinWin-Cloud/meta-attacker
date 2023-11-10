@@ -45,7 +45,7 @@ void enter_attack_console(std::basic_string<char> payload) {
 }
 
 
-void show_payload(char* payload) {
+void show_payload(std::basic_string<char> payload) {
 	if (payload == "death_ping") {
 		i_1();
 	}
@@ -57,6 +57,9 @@ void show_payload(char* payload) {
 	}
 	if (payload == "resource_attack") {
 		i_4();
+	}
+	else {
+		return;
 	}
 }
 
@@ -108,8 +111,12 @@ void run_command(const std::string& command) {
     }
     if (command.rfind("show ",0) == 0) 
     {
-	 char* payload = const_cast<char *>(command.substr(5).c_str());
-    	 show_payload(payload);   
+	 try {
+	 	char* payload = const_cast<char *>(command.substr(5).c_str());
+		show_payload(payload);
+	 } catch (const std::runtime_error& e) {
+	 	std::cout << "Your input error." << std::endl;
+	 }
 	 return;
     }
     else {
