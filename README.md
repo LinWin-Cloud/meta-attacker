@@ -19,6 +19,8 @@ Meta Attack安全软件，是一款设计入门即入狱的DDOS软件，简单�
 重的行为。犯本罪的，处三年以下有期徒刑或者拘役，并处或者单处罚金；情节特别严重的，处三年以上七年
 以下有期徒刑，并处罚金。 
 
+## 下载地址
+- https://gitee.com/LinWin-Cloud/meta-attacker/releases
 
 ## 模块:
 - death_ping
